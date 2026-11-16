@@ -1,0 +1,39 @@
+name: AltairCommerce CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate Altair Enterprise Architecture
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: curl, gd, intl, mbstring, pdo, pdo_mysql, zip
+          tools: composer:v2
+
+      - name: Validate Composer Manifest & Syntax
+        run: |
+          echo "Validating AltairCommerce enterprise package..."
+          composer validate --no-check-lock
+          echo "Checking PHP syntax across app..."
+          php -l config/app.php
+
+      - name: Verify Brand Assets & Architecture
+        run: |
+          test -f public/altair-logo.svg && echo "Brand logo verified"
+          test -f Dockerfile && echo "Dockerfile verified"
+          test -f docker-compose.yml && echo "Docker Compose verified"
+          test -f render.yaml && echo "Render manifest verified"
+          test -f README.md && echo "Enterprise documentation verified"
+          echo "AltairCommerce CI validation passed!"

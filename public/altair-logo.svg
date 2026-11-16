@@ -1,0 +1,33 @@
+<svg width="240" height="42" viewBox="0 0 240 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="altairGrad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="goldCore" x1="6" y1="6" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <filter id="altairGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Altair Eagle Star Emblem -->
+  <g transform="translate(3, 3)">
+    <!-- Outer Diamond / Eagle Wings Star -->
+    <path d="M18 0L24 12L36 18L24 24L18 36L12 24L0 18L12 12Z" fill="url(#altairGrad)" />
+    <!-- Inner Core Radiant Star -->
+    <path d="M18 5L22 14L31 18L22 22L18 31L14 22L5 18L14 14Z" fill="url(#goldCore)" filter="url(#altairGlow)" opacity="0.95" />
+    <!-- Center Eye of Aquila -->
+    <circle cx="18" cy="18" r="4" fill="#FFFFFF" />
+    <circle cx="18" cy="18" r="2" fill="#047857" />
+  </g>
+
+  <!-- Typography -->
+  <text x="48" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="800" letter-spacing="1.5" fill="#0F172A">ALTAIR</text>
+  <rect x="135" y="11" width="98" height="20" rx="4" fill="#10B981" />
+  <text x="142" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">COMMERCE</text>
+</svg>
