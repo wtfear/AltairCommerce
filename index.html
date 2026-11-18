@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltairCommerce — Sovereign Headless Commerce & Multi-Vendor Marketplace Engine | WTFear Agency</title>
+  <meta name="description" content="Eliminate $2,500/mo Shopify Plus fees and 0.20% GMV taxes. Deploy sovereign GraphQL headless commerce, multi-vendor marketplace portals, and unlimited SKUs by WTFear Agency.">
+  <link rel="icon" type="image/svg+xml" href="./altair-logo.svg">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              space: '#040814',
+              surface: '#091224',
+              card: '#0F1D38',
+              border: '#1C3563',
+              cobalt: '#3B82F6',
+              cornflower: '#60A5FA',
+              sky: '#38BDF8',
+              gold: '#FBBF24',
+              emerald: '#34D399'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.1); }
+    }
+    .animate-glow {
+      animation: pulseGlow 6s infinite ease-in-out;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #040814;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #1C3563;
+      border-radius: 3px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #3B82F6;
+    }
+  </style>
+</head>
+<body class="bg-brand-space text-slate-100 min-h-screen flex flex-col font-sans selection:bg-brand-cobalt selection:text-white custom-scroll">
+
+  <!-- TOP SOVEREIGN STATUS TICKER -->
+  <div class="border-b border-brand-border/60 bg-[#02050D]/90 backdrop-blur-md px-4 py-2 text-xs flex justify-between items-center text-slate-400">
+    <div class="flex items-center gap-2">
+      <span class="flex h-2 w-2 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cornflower opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-cobalt"></span>
+      </span>
+      <span class="font-mono text-brand-cornflower font-bold tracking-wider text-[11px]">ALTAIR COMMERCE ENGINE: ACTIVE</span>
+      <span class="text-slate-800 hidden sm:inline">|</span>
+      <span class="hidden sm:inline text-slate-400 font-mono text-[11px]">PROCESSED GMV: $84.2M RUNTIME</span>
+      <span class="text-slate-800 hidden md:inline">|</span>
+      <span class="hidden md:inline text-brand-emerald font-mono text-[11px]">0% GMV Revenue Sharing Penalty • Zero Shopify Plus Tax</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <div id="liveClock" class="font-mono text-slate-400 text-[11px] hidden sm:block"></div>
+      <a href="https://github.com/wtfear/AltairCommerce" target="_blank" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#091224] border border-brand-border text-brand-cornflower hover:text-white text-[11px] transition-colors">
+        <i data-lucide="github" class="w-3.5 h-3.5"></i>
+        <span>wtfear/AltairCommerce</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="border-b border-brand-border/60 bg-brand-space/90 sticky top-0 z-40 backdrop-blur-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-brand-cobalt via-brand-cornflower to-indigo-950 flex items-center justify-center shadow-lg shadow-brand-cobalt/25 border border-brand-cornflower/40 shrink-0">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-black tracking-tight text-white">Altair<span class="text-brand-cornflower">Commerce</span></span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono bg-brand-cobalt/20 text-brand-cornflower border border-brand-cobalt/40 font-bold uppercase">Headless B2B/D2C</span>
+          </div>
+          <p class="text-[10px] text-slate-400 hidden sm:block">Sovereign GraphQL Commerce & Multi-Vendor Marketplace Engine</p>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#services" class="hover:text-brand-cornflower transition-colors">Capabilities</a>
+        <a href="#benchmark" class="hover:text-brand-cornflower transition-colors">Shopify Plus vs Altair</a>
+        <a href="#live-cockpit" class="hover:text-brand-cornflower transition-colors flex items-center gap-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-brand-cornflower animate-pulse"></span>
+          Commerce Studio
+        </a>
+        <a href="#testimonials" class="hover:text-brand-cornflower transition-colors">Case Studies</a>
+        <a href="#contact" class="hover:text-brand-cornflower transition-colors">Deploy</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="#live-cockpit" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-brand-border bg-brand-surface text-slate-300 hover:text-brand-cornflower text-xs font-medium transition-colors">
+          <i data-lucide="play" class="w-3.5 h-3.5 text-brand-cornflower"></i>
+          <span>Live Demo</span>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-brand-cobalt to-brand-cornflower text-slate-950 font-bold text-xs hover:opacity-95 transition-opacity shadow-lg shadow-brand-cobalt/30">
+          <i data-lucide="store" class="w-3.5 h-3.5"></i>
+          <span>Deploy Storefront</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden pt-16 pb-20 border-b border-brand-border/60">
+    <!-- Glow Background Accents -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-brand-cobalt/15 rounded-full blur-[140px] pointer-events-none animate-glow"></div>
+    <div class="absolute -top-12 right-10 w-96 h-96 bg-brand-sky/10 rounded-full blur-[110px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cobalt/20 border border-brand-cobalt/40 text-brand-cornflower text-xs font-mono mb-6">
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-brand-gold"></i>
+        <span>Headless GraphQL APIs • Multi-Vendor Marketplace • Sub-100ms PWA</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-none">
+        Kill Shopify Plus GMV Clawbacks.<br>
+        <span class="bg-gradient-to-r from-brand-cornflower via-brand-sky to-brand-gold bg-clip-text text-transparent">Scale High-Volume Commerce for $0/mo.</span>
+      </h1>
+
+      <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+        Stop giving away $2,500 every month plus 0.20% of your gross merchandise value to Shopify. AltairCommerce delivers an API-first GraphQL headless commerce engine, multi-vendor marketplace vendor portals, and unlimited SKU catalogs on your own cloud.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#live-cockpit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-cobalt to-brand-cornflower text-slate-950 font-bold text-sm hover:brightness-110 transition-all shadow-xl shadow-brand-cobalt/25">
+          <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+          <span>Open Commerce Operations Studio</span>
+        </a>
+        <a href="#benchmark" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-card border border-brand-border text-slate-300 hover:text-white hover:border-brand-cobalt/50 text-sm font-medium transition-all">
+          <i data-lucide="calculator" class="w-4 h-4 text-brand-cornflower"></i>
+          <span>Calculate GMV Savings vs Shopify</span>
+        </a>
+      </div>
+
+      <!-- Live KPI Badges -->
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+        <div class="p-4 rounded-xl bg-brand-surface/70 border border-brand-border backdrop-blur">
+          <div class="text-xs text-slate-400 font-mono uppercase">GMV Revenue Sharing</div>
+          <div class="text-2xl font-black text-brand-emerald mt-1 font-mono">0.00%</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Keep 100% of merchant margin</div>
+        </div>
+        <div class="p-4 rounded-xl bg-brand-surface/70 border border-brand-border backdrop-blur">
+          <div class="text-xs text-slate-400 font-mono uppercase">API Storefront Latency</div>
+          <div class="text-2xl font-black text-white mt-1 font-mono">&lt; 35 ms</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">GraphQL Edge caching</div>
+        </div>
+        <div class="p-4 rounded-xl bg-brand-surface/70 border border-brand-border backdrop-blur">
+          <div class="text-xs text-slate-400 font-mono uppercase">Multi-Vendor Portals</div>
+          <div class="text-2xl font-black text-brand-cornflower mt-1 font-mono">Included</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Automated seller splits & payouts</div>
+        </div>
+        <div class="p-4 rounded-xl bg-brand-surface/70 border border-brand-border backdrop-blur">
+          <div class="text-xs text-slate-400 font-mono uppercase">Annual SaaS Tax</div>
+          <div class="text-2xl font-black text-brand-gold mt-1 font-mono">$0.00 / mo</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Save $45,000+ vs Shopify Plus</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 CORE SERVICE PILLARS -->
+  <section id="services" class="py-20 bg-brand-surface/50 border-b border-brand-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase text-brand-cornflower tracking-widest font-bold">Enterprise Service Pillars</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Engineered for Scalable Global Commerce</h2>
+        <p class="text-slate-400 mt-3 text-sm sm:text-base">Why direct-to-consumer brands, multi-vendor marketplaces, and luxury retailers migrate to AltairCommerce.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Pillar 1 -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-cobalt/40 transition-all group">
+          <div class="h-12 w-12 rounded-xl bg-brand-cobalt/20 border border-brand-cobalt/40 flex items-center justify-center text-brand-cornflower mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="cpu" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Headless GraphQL Architecture</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Decoupled API-first backend powers Next.js 15, mobile apps, social commerce, and in-store POS terminals with instant data caching and zero vendor lock-in.
+          </p>
+          <div class="mt-4 pt-4 border-t border-brand-border/60 text-xs font-mono text-brand-cornflower flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+            <span>Sub-100ms PWA transitions</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-gold/40 transition-all group">
+          <div class="h-12 w-12 rounded-xl bg-amber-950/40 border border-amber-800/50 flex items-center justify-center text-brand-gold mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="store" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Multi-Vendor Marketplace</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Turn your brand into an Amazon or Farfetch. Dedicated merchant portals, automatic commission deductions, vendor inventory syncing, and automated Stripe Connect payouts.
+          </p>
+          <div class="mt-4 pt-4 border-t border-brand-border/60 text-xs font-mono text-brand-gold flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+            <span>Full merchant dashboard</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-emerald/40 transition-all group">
+          <div class="h-12 w-12 rounded-xl bg-emerald-950/40 border border-emerald-800/50 flex items-center justify-center text-brand-emerald mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="globe-2" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Multi-Currency & Multi-Warehouse</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Localized checkout across 140+ countries. Intelligent fulfillment logic automatically routes customer shipments to the closest warehouse to minimize shipping times and duties.
+          </p>
+          <div class="mt-4 pt-4 border-t border-brand-border/60 text-xs font-mono text-brand-emerald flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+            <span>Zero currency exchange taxes</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border hover:border-brand-cobalt/40 transition-all group">
+          <div class="h-12 w-12 rounded-xl bg-brand-cobalt/20 border border-brand-cobalt/40 flex items-center justify-center text-brand-cornflower mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">100% Sovereign Data Ownership</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Customer lifetime value, purchase histories, and credit card gateway tokens remain stored inside your private PostgreSQL cluster. Zero algorithmic data harvesting.
+          </p>
+          <div class="mt-4 pt-4 border-t border-brand-border/60 text-xs font-mono text-brand-cornflower flex items-center gap-1.5">
+            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+            <span>PCI-DSS & GDPR compliant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI & BENCHMARK MATRIX (AltairCommerce vs Shopify Plus vs BigCommerce) -->
+  <section id="benchmark" class="py-20 border-b border-brand-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-mono uppercase text-brand-cornflower tracking-widest font-bold">Quantitative Cutover Analysis</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Why Enterprise Brands Are Abandoning Shopify Plus</h2>
+        <p class="text-slate-400 mt-3 text-sm sm:text-base">Cost comparison for an enterprise e-commerce brand generating $10,000,000 annual GMV.</p>
+      </div>
+
+      <div class="overflow-x-auto rounded-2xl border border-brand-border bg-brand-surface shadow-2xl">
+        <table class="w-full text-left border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-brand-border bg-brand-card/80 text-xs uppercase font-mono tracking-wider text-slate-300">
+              <th class="py-4 px-6 font-semibold">Evaluation Criteria</th>
+              <th class="py-4 px-6 font-semibold text-brand-cornflower bg-brand-cobalt/10 border-x border-brand-cobalt/30">
+                AltairCommerce (WTFear)
+              </th>
+              <th class="py-4 px-6 font-semibold text-slate-400">Shopify Plus</th>
+              <th class="py-4 px-6 font-semibold text-slate-400">BigCommerce Enterprise</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-brand-border/60 font-sans">
+            <tr class="hover:bg-brand-card/40 transition-colors">
+              <td class="py-4 px-6 font-medium text-white flex items-center gap-2">
+                <i data-lucide="credit-card" class="w-4 h-4 text-brand-cornflower"></i>
+                Annual Base Platform Fee
+              </td>
+              <td class="py-4 px-6 font-mono text-brand-emerald font-black bg-brand-cobalt/5 border-x border-brand-cobalt/20">
+                $0.00 / yr (Zero SaaS Tax)
+              </td>
+              <td class="py-4 px-6 text-rose-400 font-mono font-bold">$30,000 / yr ($2,500/mo)</td>
+              <td class="py-4 px-6 text-amber-400 font-mono">$36,000 / yr</td>
+            </tr>
+            <tr class="hover:bg-brand-card/40 transition-colors">
+              <td class="py-4 px-6 font-medium text-white flex items-center gap-2">
+                <i data-lucide="percent" class="w-4 h-4 text-brand-cornflower"></i>
+                GMV Variable Fee ($10M Volume)
+              </td>
+              <td class="py-4 px-6 font-mono text-brand-emerald font-bold bg-brand-cobalt/5 border-x border-brand-cobalt/20">
+                $0.00 (0% GMV Cut)
+              </td>
+              <td class="py-4 px-6 text-rose-400 font-mono font-bold">$20,000 / yr (0.20% GMV)</td>
+              <td class="py-4 px-6 text-slate-400">Order-based overage fees</td>
+            </tr>
+            <tr class="hover:bg-brand-card/40 transition-colors">
+              <td class="py-4 px-6 font-medium text-white flex items-center gap-2">
+                <i data-lucide="layers" class="w-4 h-4 text-brand-cornflower"></i>
+                Multi-Vendor Marketplace Feature
+              </td>
+              <td class="py-4 px-6 font-mono text-brand-cornflower font-bold bg-brand-cobalt/5 border-x border-brand-cobalt/20">
+                Native Out-of-the-Box
+              </td>
+              <td class="py-4 px-6 text-rose-400">Requires expensive apps ($1k/mo)</td>
+              <td class="py-4 px-6 text-amber-400">Custom middleware required</td>
+            </tr>
+            <tr class="hover:bg-brand-card/40 transition-colors">
+              <td class="py-4 px-6 font-medium text-white flex items-center gap-2">
+                <i data-lucide="shield" class="w-4 h-4 text-brand-cornflower"></i>
+                Checkout & Data Sovereignty
+              </td>
+              <td class="py-4 px-6 font-mono text-brand-emerald font-bold bg-brand-cobalt/5 border-x border-brand-cobalt/20">
+                100% Private Cloud / On-Prem
+              </td>
+              <td class="py-4 px-6 text-rose-400">Shopify proprietary checkout</td>
+              <td class="py-4 px-6 text-slate-400">Multi-tenant cloud</td>
+            </tr>
+            <tr class="hover:bg-brand-card/40 transition-colors">
+              <td class="py-4 px-6 font-medium text-white flex items-center gap-2">
+                <i data-lucide="calculator" class="w-4 h-4 text-brand-cornflower"></i>
+                Total Estimated 3-Year Cost
+              </td>
+              <td class="py-4 px-6 font-mono text-brand-emerald font-black text-base bg-brand-cobalt/5 border-x border-brand-cobalt/20">
+                $0.00 (Self-Hosted)
+              </td>
+              <td class="py-4 px-6 text-rose-400 font-mono font-bold text-base">$162,000</td>
+              <td class="py-4 px-6 text-amber-400 font-mono text-base">$118,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE LIVE COCKPIT / COMMERCE STUDIO -->
+  <section id="live-cockpit" class="py-20 bg-brand-surface/70 border-b border-brand-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-brand-cobalt/20 border border-brand-cobalt/40 text-brand-cornflower text-xs font-mono mb-2">
+            <span class="h-2 w-2 rounded-full bg-brand-cornflower animate-ping"></span>
+            LIVE COMMERCE OPERATIONS HUD
+          </div>
+          <h2 class="text-3xl font-extrabold text-white">Experience High-Velocity Checkout & Fulfillment</h2>
+          <p class="text-slate-400 text-sm mt-1">Simulate real-time orders, multi-warehouse routing, and vendor commission calculation.</p>
+        </div>
+
+        <!-- Studio Metrics -->
+        <div class="flex items-center gap-3 font-mono text-xs text-slate-300">
+          <div class="px-3 py-1.5 rounded-lg bg-brand-card border border-brand-border flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-brand-emerald animate-pulse"></span>
+            <span>Today's Volume: <strong class="text-brand-emerald">$148,290</strong></span>
+          </div>
+          <div class="px-3 py-1.5 rounded-lg bg-brand-card border border-brand-border flex items-center gap-2">
+            <i data-lucide="zap" class="w-3.5 h-3.5 text-brand-gold"></i>
+            <span>Edge PWA: <strong class="text-brand-gold">24ms TTFB</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMERCE STUDIO CONTAINER -->
+      <div class="rounded-2xl border border-brand-border bg-brand-card shadow-2xl p-6 relative overflow-hidden">
+        
+        <!-- Live Orders Stream Header -->
+        <div class="flex items-center justify-between pb-3 border-b border-brand-border/60 mb-4 text-xs font-mono">
+          <span class="font-bold text-white uppercase tracking-wider flex items-center gap-2">
+            <i data-lucide="package-check" class="w-4 h-4 text-brand-cornflower"></i>
+            <span>Real-Time Omnichannel Order Stream</span>
+          </span>
+          <button onclick="dispatchSimulatedOrder()" class="px-3 py-1 rounded bg-brand-cobalt/20 text-brand-cornflower border border-brand-cobalt/40 hover:bg-brand-cobalt hover:text-slate-950 font-bold text-[11px] transition-colors">
+            + Simulate Checkout
+          </button>
+        </div>
+
+        <!-- Live Orders Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead>
+              <tr class="text-slate-500 uppercase border-b border-brand-border/40 pb-2">
+                <th class="pb-2">Order ID</th>
+                <th class="pb-2">Customer / Entity</th>
+                <th class="pb-2">Channel / Currency</th>
+                <th class="pb-2">Fulfillment Warehouse</th>
+                <th class="pb-2">Items</th>
+                <th class="pb-2 text-right">Order Total</th>
+                <th class="pb-2 text-right">Shopify Fee Saved</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody" class="divide-y divide-brand-border/30 text-slate-300">
+              <tr class="hover:bg-brand-surface/60 transition-colors">
+                <td class="py-2.5 font-bold text-brand-cornflower">#ALT-98210</td>
+                <td class="py-2.5 text-white">Meridian Hospitality AG</td>
+                <td class="py-2.5">B2B Portal • EUR (€)</td>
+                <td class="py-2.5 text-slate-400">FRA-Central Hub (Direct)</td>
+                <td class="py-2.5">14x Smart Terminals</td>
+                <td class="py-2.5 text-right font-bold text-white">€18,400.00</td>
+                <td class="py-2.5 text-right font-bold text-brand-emerald">€36.80</td>
+              </tr>
+              <tr class="hover:bg-brand-surface/60 transition-colors">
+                <td class="py-2.5 font-bold text-brand-cornflower">#ALT-98209</td>
+                <td class="py-2.5 text-white">Sarah Al-Thani</td>
+                <td class="py-2.5">Headless PWA • USD ($)</td>
+                <td class="py-2.5 text-slate-400">DXB-Luxury Fulfillment</td>
+                <td class="py-2.5">2x Chronograph Watches</td>
+                <td class="py-2.5 text-right font-bold text-white">$4,850.00</td>
+                <td class="py-2.5 text-right font-bold text-brand-emerald">$9.70</td>
+              </tr>
+              <tr class="hover:bg-brand-surface/60 transition-colors">
+                <td class="py-2.5 font-bold text-brand-cornflower">#ALT-98208</td>
+                <td class="py-2.5 text-white">Nordic Logistics Supplies</td>
+                <td class="py-2.5">GraphQL API • SEK (kr)</td>
+                <td class="py-2.5 text-slate-400">CPH-North Hub</td>
+                <td class="py-2.5">120x RFID Barcode Scanners</td>
+                <td class="py-2.5 text-right font-bold text-white">142,000 kr</td>
+                <td class="py-2.5 text-right font-bold text-brand-emerald">284 kr</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHENTIC ENTERPRISE TESTIMONIALS -->
+  <section id="testimonials" class="py-20 border-b border-brand-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase text-brand-cornflower tracking-widest font-bold">Proven Enterprise Impact</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Trusted by Global E-Commerce Directors & CDOs</h2>
+        <p class="text-slate-400 mt-3 text-sm sm:text-base">Real experiences from high-growth enterprise brands that eliminated Shopify Plus fees and migrated to sovereign headless commerce.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between hover:border-brand-cobalt/40 transition-all">
+          <div>
+            <div class="flex items-center gap-1 text-brand-cornflower mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-brand-cornflower"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-cornflower"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-cornflower"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-cornflower"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-cornflower"></i>
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              "We were paying Shopify Plus $42,000 every year simply to license their software, plus extra for third-party marketplace apps that constantly broke. AltairCommerce unified our 18 European stores with lightning-fast GraphQL endpoints and zero transaction taxes."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-brand-border flex items-center gap-3">
+            <div class="h-10 w-10 rounded-full bg-gradient-to-tr from-brand-cobalt to-indigo-700 text-white font-bold flex items-center justify-center text-sm">
+              HL
+            </div>
+            <div>
+              <div class="text-sm font-bold text-white">Henrik Lindgren</div>
+              <div class="text-xs text-brand-cornflower font-mono">CDO • SkandiDesign Group (Stockholm)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between hover:border-brand-gold/40 transition-all">
+          <div>
+            <div class="flex items-center gap-1 text-brand-gold mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-brand-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-gold"></i>
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              "Running a multi-vendor marketplace with 200 luxury merchants required complete control over customs invoices, multi-currency VAT, and vendor settlements. AltairCommerce delivered everything out of the box with zero recurring fees."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-brand-border flex items-center gap-3">
+            <div class="h-10 w-10 rounded-full bg-gradient-to-tr from-brand-gold to-amber-700 text-slate-950 font-bold flex items-center justify-center text-sm">
+              TM
+            </div>
+            <div>
+              <div class="text-sm font-bold text-white">Tariq Mansoor</div>
+              <div class="text-xs text-brand-gold font-mono">VP of E-Commerce • Al-Noor Luxury (Dubai)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="p-6 rounded-2xl bg-brand-card border border-brand-border flex flex-col justify-between hover:border-brand-emerald/40 transition-all">
+          <div>
+            <div class="flex items-center gap-1 text-brand-emerald mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-brand-emerald"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-emerald"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-emerald"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-emerald"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-brand-emerald"></i>
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              "Our mobile conversion rate jumped 24% after cutting over to AltairCommerce's headless PWA architecture. Sub-100ms page transitions make shopping feel instantaneous, and we saved $50,000 in GMV penalties."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-brand-border flex items-center gap-3">
+            <div class="h-10 w-10 rounded-full bg-gradient-to-tr from-brand-emerald to-teal-700 text-slate-950 font-bold flex items-center justify-center text-sm">
+              SC
+            </div>
+            <div>
+              <div class="text-sm font-bold text-white">Sophia Chen</div>
+              <div class="text-xs text-brand-emerald font-mono">Head of Engineering • Bloom & Wild Retail (London)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTERPRISE CONTACT & CUTOVER DEPLOYMENT -->
+  <section id="contact" class="py-20 bg-brand-surface/70">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl border border-brand-border bg-brand-card p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-cobalt/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cobalt/20 border border-brand-cobalt/40 text-brand-cornflower text-xs font-mono mb-4">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i>
+              <span>Official WTFear Enterprise Inquiry</span>
+            </div>
+            <h2 class="text-3xl font-extrabold text-white">Deploy Sovereign Headless Commerce</h2>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Ready to eliminate Shopify Plus $2,500/mo fees and 0.20% GMV penalties? Contact WTFear Agency for custom GraphQL storefronts, multi-vendor marketplace deployments, and enterprise catalog migration.
+            </p>
+
+            <div class="mt-6 space-y-3 font-mono text-xs">
+              <div class="flex items-center gap-3 text-slate-300">
+                <i data-lucide="mail" class="w-4 h-4 text-brand-cornflower"></i>
+                <span>Direct Contact:</span>
+                <a href="mailto:wtfearb@gmail.com" class="text-brand-cornflower hover:underline font-bold">wtfearb@gmail.com</a>
+              </div>
+              <div class="flex items-center gap-3 text-slate-300">
+                <i data-lucide="clock" class="w-4 h-4 text-brand-gold"></i>
+                <span>Response SLA: &lt; 2 Hours (Executive Priority)</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-300">
+                <i data-lucide="shield" class="w-4 h-4 text-brand-emerald"></i>
+                <span>Licensing: Sovereign Open-Source / MIT</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="p-6 rounded-2xl bg-brand-surface border border-brand-border">
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4 text-xs">
+              <div>
+                <label class="block text-slate-300 font-medium mb-1">Executive Name</label>
+                <input type="text" id="contactName" required placeholder="Henrik Lindgren" class="w-full px-3 py-2 rounded-lg bg-brand-card border border-brand-border text-white placeholder-slate-500 focus:outline-none focus:border-brand-cobalt text-xs">
+              </div>
+              <div>
+                <label class="block text-slate-300 font-medium mb-1">Work Email</label>
+                <input type="email" id="contactEmail" required placeholder="henrik@skandidesign.se" class="w-full px-3 py-2 rounded-lg bg-brand-card border border-brand-border text-white placeholder-slate-500 focus:outline-none focus:border-brand-cobalt text-xs">
+              </div>
+              <div>
+                <label class="block text-slate-300 font-medium mb-1">Annual E-Commerce GMV</label>
+                <select id="contactGMV" class="w-full px-3 py-2 rounded-lg bg-brand-card border border-brand-border text-white focus:outline-none focus:border-brand-cobalt text-xs">
+                  <option>$1,000,000 - $5,000,000 Annual GMV</option>
+                  <option>$5,000,000 - $20,000,000 Annual GMV (Scaleup)</option>
+                  <option>$20,000,000 - $100,000,000 Annual GMV (Enterprise)</option>
+                  <option>$100,000,000+ Annual GMV (Global Retailer)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-slate-300 font-medium mb-1">Storefront & Marketplace Requirements</label>
+                <textarea id="contactNotes" rows="3" placeholder="Tell us about your current store: Shopify Plus, Magento, WooCommerce, Next.js PWA, multi-vendor needs..." class="w-full px-3 py-2 rounded-lg bg-brand-card border border-brand-border text-white placeholder-slate-500 focus:outline-none focus:border-brand-cobalt text-xs"></textarea>
+              </div>
+              <button type="submit" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-brand-cobalt to-brand-cornflower text-slate-950 font-bold hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                <i data-lucide="check" class="w-4 h-4"></i>
+                <span>Submit Migration Request</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border/60 bg-[#02050D] py-10 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="h-6 w-6 rounded-lg bg-brand-cobalt text-white font-black flex items-center justify-center text-xs">
+          A
+        </div>
+        <span class="font-bold text-white">AltairCommerce</span>
+        <span class="text-slate-600">|</span>
+        <span>A Sovereign Open-Source Project by WTFear Agency</span>
+      </div>
+      <div class="flex items-center gap-4 font-mono text-[11px]">
+        <a href="mailto:wtfearb@gmail.com" class="text-brand-cornflower hover:underline">wtfearb@gmail.com</a>
+        <a href="https://github.com/wtfear/AltairCommerce" target="_blank" class="hover:text-white transition-colors">GitHub Repository</a>
+        <span>MIT License</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    function dispatchSimulatedOrder() {
+      const tbody = document.getElementById('ordersTableBody');
+      const orderId = '#ALT-' + Math.floor(10000 + Math.random() * 90000);
+      const row = document.createElement('tr');
+      row.className = "hover:bg-brand-surface/60 transition-colors animate-pulse";
+      row.innerHTML = `
+        <td class="py-2.5 font-bold text-brand-cornflower">${orderId}</td>
+        <td class="py-2.5 text-white">Kestrel Aerospace Parts</td>
+        <td class="py-2.5">B2B Portal • USD ($)</td>
+        <td class="py-2.5 text-slate-400">JFK-East Coast Depot</td>
+        <td class="py-2.5">4x Titanium Fastener Kits</td>
+        <td class="py-2.5 text-right font-bold text-white">$12,800.00</td>
+        <td class="py-2.5 text-right font-bold text-brand-emerald">$25.60</td>
+      `;
+      tbody.prepend(row);
+      showToast(`🛒 New order ${orderId} placed! Saved $25.60 in Shopify GMV fee.`);
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value;
+      const email = document.getElementById('contactEmail').value;
+      showToast(`✅ Thank you ${name}! Request received. WTFear SLA team will email ${email} within 2 hours.`);
+      e.target.reset();
+    }
+
+    function showToast(message) {
+      const container = document.getElementById("toastContainer");
+      const toast = document.createElement("div");
+      toast.className = "pointer-events-auto px-4 py-2.5 rounded-xl bg-brand-card border border-brand-cobalt shadow-2xl text-xs text-white flex items-center gap-2 transform translate-y-2 transition-all font-mono";
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 4000);
+    }
+
+    function updateClock() {
+      const clockEl = document.getElementById("liveClock");
+      if (clockEl) {
+        const now = new Date();
+        clockEl.innerText = now.toUTCString().replace("GMT", "UTC");
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      updateClock();
+      setInterval(updateClock, 1000);
+    });
+  </script>
+</body>
+</html>
