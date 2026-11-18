@@ -2,8 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "vite build"
+        "build": "node build.js",
+        "dev": "vite"
     },
     "devDependencies": {
         "@playwright/test": "^1.58.1",
